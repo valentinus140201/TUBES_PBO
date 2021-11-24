@@ -37,15 +37,15 @@ public class BayarTagihan implements ActionListener{
         menu.setLayout(null);
         isi.setLayout(null);
         
-        menu.setBounds(10,520,1170,50);
-        isi.setBounds(10,10,1170,500);
+        menu.setBounds(11,520,1170,50);
+        isi.setBounds(11,11,1172,500);
         
         isi.setBackground(Color.ORANGE);
         menu.setBackground(Color.ORANGE);
         
-        menuPasien.setBounds(320,10,90,30);
-        menuDokter.setBounds(520,10,90,30);
-        menuAdmin.setBounds(720,10,120,30);
+        menuPasien.setBounds(321,11,90,30);
+        menuDokter.setBounds(521,11,90,30);
+        menuAdmin.setBounds(721,11,120,30);
         
         menu.add(menuDokter);
         menu.add(menuPasien);
@@ -66,12 +66,12 @@ public class BayarTagihan implements ActionListener{
         JLabel isilabNamaPasien = new JLabel(transaksi.getPasien().getNama());
         JLabel isilabTotalTagihan = new JLabel("" + transaksi.getTotal());
         
-        labIdTransaksi.setBounds(40, 50, 160, 25);
-        isilabIdTransaksi.setBounds(120, 50, 160, 25);
-        labNamaPasien.setBounds(40, 100, 160, 25);
-        isilabNamaPasien.setBounds(120, 100, 160, 25);
-        labTotalTagihan.setBounds(40, 150, 160, 25);
-        isilabTotalTagihan.setBounds(130, 150, 160, 25);
+        labIdTransaksi.setBounds(41, 51, 160, 25);
+        isilabIdTransaksi.setBounds(121, 51, 160, 25);
+        labNamaPasien.setBounds(41, 101, 160, 25);
+        isilabNamaPasien.setBounds(121, 101, 160, 25);
+        labTotalTagihan.setBounds(41, 151, 160, 25);
+        isilabTotalTagihan.setBounds(131, 151, 161, 25);
         
         isi.add(labIdTransaksi);
         isi.add(isilabIdTransaksi);
