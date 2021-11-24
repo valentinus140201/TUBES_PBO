@@ -18,7 +18,7 @@ import Model.*;
  */
 public class BayarTagihan implements ActionListener{
     
-    JFrame frameBayarTagihan = new JFrame("BAYAR TAGIHAN");
+    JFrame BayarTagihan = new JFrame("BAYAR TAGIHAN");
     JPanel menu = new JPanel();
     JPanel isi = new JPanel();
     
@@ -30,14 +30,14 @@ public class BayarTagihan implements ActionListener{
 
     public BayarTagihan(Transaksi transaksi){
         
-        frameBayarTagihan.setSize(1200, 620);
-        frameBayarTagihan.setLocationRelativeTo(null);
-        frameBayarTagihan.setLayout(null);
+        BayarTagihan.setSize(1200, 620);
+        BayarTagihan.setLocationRelativeTo(null);
+        BayarTagihan.setLayout(null);
         
         menu.setLayout(null);
         isi.setLayout(null);
         
-        menu.setBounds(11,520,1170,50);
+        menu.setBounds(11,521,1170,50);
         isi.setBounds(11,11,1172,500);
         
         isi.setBackground(Color.ORANGE);
@@ -55,7 +55,7 @@ public class BayarTagihan implements ActionListener{
         menuPasien.addActionListener(this);
         menuAdmin.addActionListener(this);
         
-        bayarTagihan.setBounds(120,200,150,30);
+        bayarTagihan.setBounds(121,201,150,30);
         bayarTagihan.addActionListener(this);
 
         JLabel labIdTransaksi = new JLabel("Id Transaksi : ");
@@ -83,13 +83,13 @@ public class BayarTagihan implements ActionListener{
         bayarTagihan.addActionListener(this);
         isi.add(bayarTagihan);
         
-        frameBayarTagihan.add(isi);
-        frameBayarTagihan.add(menu);
+        BayarTagihan.add(isi);
+        BayarTagihan.add(menu);
         
-        frameBayarTagihan.setUndecorated(true);
-        frameBayarTagihan.getRootPane().setWindowDecorationStyle(JRootPane.PLAIN_DIALOG);
-        frameBayarTagihan.setVisible(true);
-        frameBayarTagihan.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        BayarTagihan.setUndecorated(true);
+        BayarTagihan.getRootPane().setWindowDecorationStyle(JRootPane.PLAIN_DIALOG);
+        BayarTagihan.setVisible(true);
+        BayarTagihan.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     
         tempTransaksi = transaksi;
     }
@@ -100,19 +100,19 @@ public class BayarTagihan implements ActionListener{
         switch(command) {
             case "PASIEN": 
                 new MenuPasien();
-                frameBayarTagihan.setVisible(false);
+                BayarTagihan.setVisible(false);
                 break;
             case "DOKTER":
                 new MenuDokter();
-                frameBayarTagihan.setVisible(false);
+                BayarTagihan.setVisible(false);
                 break;
             case "ADMINISTRASI":
                 new MenuAdmin();
-                frameBayarTagihan.setVisible(false);
+                BayarTagihan.setVisible(false);
                 break;
             case "BAYAR TAGIHAN":
                 ControllerTransaksi.insertTransaksibyBayarTagihan(tempTransaksi);
-                frameBayarTagihan.setVisible(false);
+                BayarTagihan.setVisible(false);
                 new MenuAdmin();
                 JOptionPane.showMessageDialog(null, "Pembayaran Telah Berhasil, Trimaksih");
                 break;
