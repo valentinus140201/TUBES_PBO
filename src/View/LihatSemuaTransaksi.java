@@ -29,18 +29,15 @@ import javax.swing.table.JTableHeader;
 
 public class LihatSemuaTransaksi implements ActionListener{
     
-    JFrame lihatSemuaTransaksi = new JFrame("LIHAT SEMUA TRANSAKSI");
+    JFrame lihatSemuaTransaksi = new JFrame("Melihat Semua Transaksi");
     JPanel menu = new JPanel();
     JPanel isi = new JPanel();
     
-    JButton menuPasien = new JButton("PASIEN");
-    JButton menuDokter = new JButton("DOKTER");
-    JButton menuAdmin = new JButton("ADMINISTRASI");
-    JButton obatPasien = new JButton("PENCAIRAN RESEP DOKTER");
-    JButton lihatTransaksi = new JButton("LIHAT SEMUA TRANSAKSI");
-    
-    JTable table;
-    JScrollPane scroll;
+    JButton menuPasien = new JButton("Pasien");
+    JButton menuDokter = new JButton("Dokter");
+    JButton menuAdmin = new JButton("Administrasi");
+    JButton obatPasien = new JButton("Pencarian Resep Dokter");
+    JButton lihatTransaksi = new JButton("Melihat Semua Transaksi");
   
     public LihatSemuaTransaksi(){
         
@@ -58,15 +55,15 @@ public class LihatSemuaTransaksi implements ActionListener{
         menu.setBackground(Color.ORANGE);
         
         menuPasien.setBounds(320,10,90,30);
-        menuDokter.setBounds(520,10,90,30);
-        menuAdmin.setBounds(720,10,120,30);
-        
-        menu.add(menuDokter);
         menu.add(menuPasien);
-        menu.add(menuAdmin);
-        
-        menuDokter.addActionListener(this);
         menuPasien.addActionListener(this);
+        
+        menuDokter.setBounds(520,10,90,30);
+        menu.add(menuDokter);
+        menuDokter.addActionListener(this);
+        
+        menuAdmin.setBounds(720,10,120,30);
+        menu.add(menuAdmin);
         menuAdmin.addActionListener(this);
         
         ArrayList<Transaksi> listTransaksi = ControllerTransaksi.getAllTransaksi("");
@@ -82,6 +79,9 @@ public class LihatSemuaTransaksi implements ActionListener{
             isitable[i][3] = transaksi.getPasien().getNama();
             isitable[i][4] = "" + transaksi.getTotal();
         }
+        
+        JTable table;
+        JScrollPane scroll;
         
         table = new JTable(isitable, header);
         scroll = new JScrollPane(table);
@@ -103,15 +103,15 @@ public class LihatSemuaTransaksi implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         String command = ae.getActionCommand();
         switch(command) {
-            case "PASIEN": 
+            case "Pasien": 
                 new MenuPasien();
                 lihatSemuaTransaksi.setVisible(false);
                 break;
-            case "DOKTER":
+            case "Dokter":
                 new MenuDokter();
                 lihatSemuaTransaksi.setVisible(false);
                 break;
-            case "ADMINISTRASI":
+            case "Administrasi":
                 new MenuAdmin();
                 lihatSemuaTransaksi.setVisible(false);
                 break;
