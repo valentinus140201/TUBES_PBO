@@ -36,7 +36,7 @@ public class LihatSemuaTransaksi implements ActionListener{
     JButton menuPasien = new JButton("Pasien");
     JButton menuDokter = new JButton("Dokter");
     JButton menuAdmin = new JButton("Administrasi");
-    JButton obatPasien = new JButton("Pencarian Resep Dokter");
+    JButton obatPasien = new JButton("Pencairan Resep Dokter");
     JButton lihatTransaksi = new JButton("Melihat Semua Transaksi");
   
     public LihatSemuaTransaksi(){
