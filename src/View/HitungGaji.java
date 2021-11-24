@@ -20,9 +20,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Properties;
+import java.util.*;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
@@ -36,9 +34,9 @@ public class HitungGaji implements ActionListener{
     JLabel labNama = new JLabel("Nama   :");
     JLabel labGaji = new JLabel("Gaji   :");
 
-    JButton menuPasien = new JButton("PASIEN");
-    JButton menuDokter = new JButton("DOKTER");
-    JButton menuAdmin = new JButton("ADMINISTRASI");
+    JButton menuPasien = new JButton("Pasien");
+    JButton menuDokter = new JButton("Dokter");
+    JButton menuAdmin = new JButton("Administrasi");
     
     private ControllerDokter control = new ControllerDokter();
 
@@ -53,15 +51,15 @@ public class HitungGaji implements ActionListener{
         menu.setLayout(null);
         isi.setLayout(null);
         
-        menu.setBounds(10,520,1170,50);
-        isi.setBounds(10,10,1170,500);
+        menu.setBounds(11,521,1170,50);
+        isi.setBounds(11,11,1170,500);
         
         isi.setBackground(Color.ORANGE);
         menu.setBackground(Color.ORANGE);
         
-        menuPasien.setBounds(320,10,90,30);
-        menuDokter.setBounds(520,10,90,30);
-        menuAdmin.setBounds(720,10,120,30);
+        menuPasien.setBounds(321,11,90,30);
+        menuDokter.setBounds(521,11,90,30);
+        menuAdmin.setBounds(721,11,120,30);
         
         menu.add(menuDokter);
         menu.add(menuPasien);
@@ -71,17 +69,17 @@ public class HitungGaji implements ActionListener{
         menuPasien.addActionListener(this);
         menuAdmin.addActionListener(this);
         
-        labNid.setBounds(40, 10, 160, 25);
-        labNama.setBounds(40, 50, 160, 25);
-        labGaji.setBounds(40, 90, 160, 25);
+        labNid.setBounds(41, 11, 160, 25);
+        labNama.setBounds(41, 51, 160, 25);
+        labGaji.setBounds(41, 91, 160, 25);
         
         JLabel nama = new JLabel(dokter.getNama());
         JLabel nid = new JLabel(dokter.getNID());
         JLabel gaji = new JLabel(String.valueOf(dokter.hitungGaji()));
         
-        nama.setBounds(120, 10, 160, 25);
-        nid.setBounds(120, 50, 160, 25);
-        gaji.setBounds(120, 90, 160, 25);
+        nama.setBounds(121, 11, 160, 25);
+        nid.setBounds(121, 51, 160, 25);
+        gaji.setBounds(121, 91, 160, 25);
         
         isi.add(labNid);
         isi.add(labNama);
@@ -92,10 +90,9 @@ public class HitungGaji implements ActionListener{
 
         hitungGaji.add(isi);
         hitungGaji.add(menu);
-    
         hitungGaji.setUndecorated(true);
-        hitungGaji.getRootPane().setWindowDecorationStyle(JRootPane.PLAIN_DIALOG);
         hitungGaji.setVisible(true);
+        hitungGaji.getRootPane().setWindowDecorationStyle(JRootPane.PLAIN_DIALOG);
         hitungGaji.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
@@ -105,15 +102,15 @@ public class HitungGaji implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         String command = ae.getActionCommand();
         switch(command) {
-            case "PASIEN": 
+            case "Pasien": 
                 new MenuPasien();
                 hitungGaji.setVisible(false);
                 break;
-            case "DOKTER":
+            case "Dokter":
                 new MenuDokter();
                 hitungGaji.setVisible(false);
                 break;
-            case "ADMINISTRASI":
+            case "Administrasi":
                 new MenuAdmin();
                 hitungGaji.setVisible(false);
                 break; 
