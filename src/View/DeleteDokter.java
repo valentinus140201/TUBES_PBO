@@ -53,8 +53,8 @@ public class DeleteDokter implements ActionListener{
         menu.setBounds(11,521,1170,50);
         isi.setBounds(11,11,1170,500);
         
-        isi.setBackground(Color.BLUE);
-        menu.setBackground(Color.BLUE);
+        isi.setBackground(Color.ORANGE);
+        menu.setBackground(Color.ORANGE);
         
         menuPasien.setBounds(321,11,90,30);
         menu.add(menuPasien);
