@@ -31,8 +31,8 @@ public class LoginScreen implements ActionListener{
     JLabel labPassword = new JLabel("Password");
     JTextField textUsername = new JTextField();
     JPasswordField textPassword = new JPasswordField();
-    JButton login = new JButton("LOGIN");
-    JButton resetButton=new JButton("RESET");
+    JButton login = new JButton("Login");
+    JButton resetButton=new JButton("Reset");
     JCheckBox showPassword=new JCheckBox("Show Password");
     ControllerStaff control = new ControllerStaff();
 
