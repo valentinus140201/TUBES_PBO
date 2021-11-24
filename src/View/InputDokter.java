@@ -39,10 +39,10 @@ public class InputDokter implements ActionListener{
     JPanel menu = new JPanel();
     JPanel isi = new JPanel();
     
-    JButton menuPasien = new JButton("PASIEN");
-    JButton menuDokter = new JButton("DOKTER");
-    JButton menuAdmin = new JButton("ADMINISTRASI");
-    JButton submit = new JButton("SUBMIT");
+    JButton menuPasien = new JButton("Pasien");
+    JButton menuDokter = new JButton("Doker");
+    JButton menuAdmin = new JButton("Administrasi");
+    JButton submit = new JButton("Submit");
     
     JLabel labNik = new JLabel("NIK");
     JLabel labNama = new JLabel("Nama");
@@ -101,32 +101,32 @@ public class InputDokter implements ActionListener{
         
         //isi menu
         
-        labNik.setBounds(40, 10, 160, 25);
+        labNik.setBounds(41, 11, 160, 25);
         isi.add(labNik);
-        textNik.setBounds(120, 10, 160, 25);
+        textNik.setBounds(120, 11, 160, 25);
         isi.add(textNik);
        
-        labNama.setBounds(40, 90, 160, 25);
+        labNama.setBounds(41, 91, 160, 25);
         isi.add(labNama);
-        textNama.setBounds(120, 90, 160, 25);
+        textNama.setBounds(121, 91, 160, 25);
         isi.add(textNama);
         
         p.put("text.today", "Today");
         p.put("text.month", "Month");
         p.put("text.year", "Year");
         
-        datePicker.setBounds(120, 50, 160, 25);
-        labTgllahir.setBounds(40, 50, 160, 25);
+        datePicker.setBounds(121, 51, 160, 25);
+        labTgllahir.setBounds(41, 51, 160, 25);
         isi.add(labTgllahir);
         isi.add(datePicker);
         
-        labGoldar.setBounds(40, 130, 160, 25);
+        labGoldar.setBounds(41, 13, 160, 25);
         isi.add(labGoldar);
         
-        golo.setBounds(140, 135, 50, 15);
-        gola.setBounds(190, 135, 50, 15);
-        golb.setBounds(240, 135, 50, 15);
-        golab.setBounds(290, 135, 50, 15);
+        golo.setBounds(141, 136, 50, 15);
+        gola.setBounds(191, 136, 50, 15);
+        golb.setBounds(241, 136, 50, 15);
+        golab.setBounds(291, 136, 50, 15);
         
         golo.setBackground(Color.ORANGE);
         gola.setBackground(Color.ORANGE);
@@ -145,11 +145,11 @@ public class InputDokter implements ActionListener{
         isi.add(golb);
         isi.add(golab);
         
-        labGender.setBounds(40, 160, 160, 25);
+        labGender.setBounds(41, 161, 160, 25);
         isi.add(labGender);
         
-        male.setBounds(140, 165, 50, 15);
-        female.setBounds(190, 165, 70, 15);
+        male.setBounds(141, 166, 50, 15);
+        female.setBounds(191, 166, 70, 15);
         
         male.setBackground(Color.ORANGE);
         female.setBackground(Color.ORANGE);
@@ -162,14 +162,14 @@ public class InputDokter implements ActionListener{
         isi.add(male);
         isi.add(female);
         
-        labNid.setBounds(40, 200, 160, 25);
+        labNid.setBounds(41, 201, 160, 25);
         isi.add(labNid);
-        textNid.setBounds(120, 200, 160, 25);
+        textNid.setBounds(121, 201, 160, 25);
         isi.add(textNid);
         
-        labPoli.setBounds(40, 250, 160, 25);
+        labPoli.setBounds(41, 251, 160, 25);
         isi.add(labPoli);
-        Poli.setBounds(120, 250, 160, 25);
+        Poli.setBounds(121, 251, 160, 25);
         isi.add(Poli);
         
         labNotelp.setBounds(40, 300, 160, 25);
@@ -199,19 +199,19 @@ public class InputDokter implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         String command = ae.getActionCommand();
         switch(command) {
-            case "PASIEN": 
+            case "Pasien": 
                 new MenuPasien();
                 inputDokter.setVisible(false);
                 break;
-            case "DOKTER":
+            case "Dokter":
                 new MenuDokter();
                 inputDokter.setVisible(false);
                 break;
-            case "ADMINISTRASI":
+            case "Administrasi":
                 new MenuAdmin();
                 inputDokter.setVisible(false);
                 break;
-            case "SUBMIT":
+            case "Submit":
                 String strnik = textNik.getText();
                 String strnama = textNama.getText();
                 String strlahir = model.getDay() + "-" + model.getMonth() + "-" + model.getYear();
