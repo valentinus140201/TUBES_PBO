@@ -34,15 +34,18 @@ import java.util.logging.Logger;
 
 
 public class InputObat implements ActionListener{
+    
     private ControllerObat control = new ControllerObat();
-    JFrame inputDokter = new JFrame("INPUT OBAT");
+    //frame
+    JFrame inputDokter = new JFrame("Input Obat");
+    //panel
     JPanel menu = new JPanel();
     JPanel isi = new JPanel();
     
-    JButton menuPasien = new JButton("PASIEN");
-    JButton menuDokter = new JButton("DOKTER");
-    JButton menuAdmin = new JButton("ADMINISTRASI");
-    JButton submit = new JButton("SUBMIT");
+    JButton menuPasien = new JButton("Pasien");
+    JButton menuDokter = new JButton("Dokter");
+    JButton menuAdmin = new JButton("Administrasi");
+    JButton submit = new JButton("Submit");
     
     JLabel labNama = new JLabel("Nama");
     JLabel labBeli = new JLabel("Harga Beli");
@@ -60,37 +63,37 @@ public class InputObat implements ActionListener{
         menu.setLayout(null);
         isi.setLayout(null);
         
-        menu.setBounds(10,520,1170,50);
-        isi.setBounds(10,10,1170,500);
+        menu.setBounds(11,521,1170,50);
+        isi.setBounds(11,11,1170,500);
         
         isi.setBackground(Color.ORANGE);
         menu.setBackground(Color.ORANGE);
         
-        menuPasien.setBounds(320,10,90,30);
-        menuDokter.setBounds(520,10,90,30);
-        menuAdmin.setBounds(720,10,120,30);
-        
-        menu.add(menuDokter);
+        menuPasien.setBounds(321,11,90,30);
         menu.add(menuPasien);
-        menu.add(menuAdmin);       
-        
         menuDokter.addActionListener(this);
+        
+        menuDokter.setBounds(521,11,90,30);
+        menu.add(menuDokter);
         menuPasien.addActionListener(this);
+        
+        menuAdmin.setBounds(721,11,120,30);
+        menu.add(menuAdmin);
         menuAdmin.addActionListener(this);
         
-        labNama.setBounds(40, 10, 160, 25);
+        labNama.setBounds(41, 11, 160, 25);
         isi.add(labNama);
-        textNama.setBounds(120, 10, 160, 25);
+        textNama.setBounds(121, 11, 160, 25);
         isi.add(textNama);
         
-        labBeli.setBounds(40, 60, 160, 25);
+        labBeli.setBounds(41, 61, 160, 25);
         isi.add(labBeli);
-        textBeli.setBounds(120, 60, 160, 25);
+        textBeli.setBounds(121, 61, 160, 25);
         isi.add(textBeli);
         
-        labJual.setBounds(40, 120, 160, 25);
+        labJual.setBounds(41, 121, 160, 25);
         isi.add(labJual);
-        textJual.setBounds(120, 120, 160, 25);
+        textJual.setBounds(121, 121, 160, 25);
         isi.add(textJual);
         
         submit.setBounds(80,160,100,25);
@@ -101,30 +104,32 @@ public class InputObat implements ActionListener{
         inputDokter.add(menu);
         
         inputDokter.setUndecorated(true);
-        inputDokter.getRootPane().setWindowDecorationStyle(JRootPane.PLAIN_DIALOG);
         inputDokter.setVisible(true);
+        inputDokter.getRootPane().setWindowDecorationStyle(JRootPane.PLAIN_DIALOG);
         inputDokter.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        
     }
     
     public void actionPerformed(ActionEvent ae) {
         String command = ae.getActionCommand();
+        int beli,jual;
+        
         switch(command) {
-            case "PASIEN": 
+            case "Pasien": 
                 new MenuPasien();
                 inputDokter.setVisible(false);
                 break;
-            case "DOKTER":
+            case "Dokter":
                 new MenuDokter();
                 inputDokter.setVisible(false);
                 break;
-            case "ADMINISTRASI":
+            case "Administrasi":
                 new MenuAdmin();
                 inputDokter.setVisible(false);
                 break;
-            case "SUBMIT":
-                int beli = Integer.parseInt(textBeli.getText());
-                int jual = Integer.parseInt(textJual.getText());
+            case "Submit":
+                beli = Integer.parseInt(textBeli.getText());
+                jual = Integer.parseInt(textJual.getText());
                 String strnama = textNama.getText();
                 Obat obat = new Obat();
                 obat.setIDObat(control.getLastIDObat());
