@@ -21,12 +21,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Properties;
 import Controller.*;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 public class LoginScreen implements ActionListener{
     
-    JFrame frame = new JFrame("LOGIN");
+    JFrame frame = new JFrame("Login");
     JPanel menu = new JPanel();
     
     JLabel labUsername = new JLabel("Username");
@@ -44,44 +42,48 @@ public class LoginScreen implements ActionListener{
         frame.setLayout(null);
         frame.setSize(400,600);
         frame.setLocationRelativeTo(null);
+        
         menu.setLayout(null);
         menu.setBounds(10,10,360,530);
         menu.setBackground(Color.ORANGE);
+        
         labUsername.setBounds(50, 150, 100, 30);
-        labPassword.setBounds(50, 220, 150, 30);
-        textUsername.setBounds(150, 150, 150, 30);
-        textPassword.setBounds(150, 220, 150, 30);
-        login.setBounds(50, 300, 100, 30);
-        resetButton.setBounds(200, 300, 100, 30);
-        showPassword.setBounds(150, 250, 150, 30);
-        showPassword.setBackground(Color.ORANGE);
-        
-        
-        menu.add(login);
         menu.add(labUsername);
-        menu.add(labPassword);
-        menu.add(textUsername);
-        menu.add(textPassword);
-        menu.add(resetButton);
-        menu.add(showPassword);
         
+        labPassword.setBounds(50, 220, 150, 30);
+        menu.add(labPassword);
+        
+        textUsername.setBounds(150, 150, 150, 30);
+        menu.add(textUsername);
+        
+        textPassword.setBounds(150, 220, 150, 30);
+        menu.add(textPassword);
+        
+        login.setBounds(50, 300, 100, 30);
+        menu.add(login);
         login.addActionListener(this);
+        
+        resetButton.setBounds(200, 300, 100, 30);
+        menu.add(resetButton);
         resetButton.addActionListener(this);
+        
+        showPassword.setBounds(150, 250, 150, 30);
+        menu.add(showPassword);
         showPassword.addActionListener(this);
+        showPassword.setBackground(Color.ORANGE);
         
         frame.add(menu);
         frame.setUndecorated(true);
         frame.getRootPane().setWindowDecorationStyle(JRootPane.PLAIN_DIALOG);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
-
     }
     
     
     @Override
     public void actionPerformed(ActionEvent ae){
         String command = ae.getActionCommand();
-        if(command == "LOGIN"){
+        if(command == "Login"){
             Staff staff = control.getStaff(textUsername.getText());
             if(textUsername.getText().equals(staff.getUsername())){
                 if(textPassword.getText().equals(staff.getPassword())){
