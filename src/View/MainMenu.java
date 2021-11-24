@@ -24,15 +24,13 @@ import java.util.Properties;
 
 public class MainMenu implements ActionListener{
     
-    JFrame frame = new JFrame("MAIN MENU");
+    JFrame frame = new JFrame("Main Menu");
     JPanel menu = new JPanel();
     JPanel isi = new JPanel();
     
-    JButton menuPasien = new JButton("PASIEN");
-    JButton menuDokter = new JButton("DOKTER");
-    JButton menuAdmin = new JButton("ADMINISTRASI");
-    JLabel homePertama;
-    JLabel homeKedua;
+    JButton menuPasien = new JButton("Pasien");
+    JButton menuDokter = new JButton("Dokter");
+    JButton menuAdmin = new JButton("Administrasi");
     
     public MainMenu(){
         
@@ -50,19 +48,22 @@ public class MainMenu implements ActionListener{
         isi.setBackground(Color.ORANGE);
 
         menuPasien.setBounds(320,10,90,30);
-        menuDokter.setBounds(520,10,90,30);
-        menuAdmin.setBounds(720,10,120,30);
-        
-        menu.add(menuDokter);
         menu.add(menuPasien);
-        menu.add(menuAdmin);
-
-        menuDokter.addActionListener(this);
         menuPasien.addActionListener(this);
+        
+        menuDokter.setBounds(520,10,90,30);
+        menu.add(menuDokter);
+        menuDokter.addActionListener(this);
+        
+        menuAdmin.setBounds(720,10,120,30);
+        menu.add(menuAdmin);
         menuAdmin.addActionListener(this);
         
         String homesPertama = "SELAMAT DATANG DI PROGRAM PUSKESMAS";
         String homesKedua = "Cabang : " + Singleton.getInstance().getCabang().getNama();
+        
+        JLabel homePertama;
+        JLabel homeKedua;
         
         homePertama = new JLabel(homesPertama);
         homeKedua = new JLabel(homesKedua);
@@ -91,15 +92,15 @@ public class MainMenu implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         String command = ae.getActionCommand();
         switch(command) {
-            case "PASIEN": 
+            case "Pasien": 
                 new MenuPasien();
                 frame.setVisible(false);
                 break;
-            case "DOKTER":
+            case "Dokter":
                 new MenuDokter();
                 frame.setVisible(false);
                 break;
-            case "ADMINISTRASI":
+            case "Administrasi":
                 new MenuAdmin();
                 frame.setVisible(false);
                 break;
