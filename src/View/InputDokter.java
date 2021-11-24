@@ -35,6 +35,7 @@ import java.util.logging.Logger;
 
 public class InputDokter implements ActionListener{
     private ControllerDokter control = new ControllerDokter();
+    
     JFrame inputDokter = new JFrame("INPUT DOKTER");
     JPanel menu = new JPanel();
     JPanel isi = new JPanel();
@@ -87,23 +88,23 @@ public class InputDokter implements ActionListener{
         menu.setBackground(Color.ORANGE);
         
         menuPasien.setBounds(320,10,90,30);
-        menuDokter.setBounds(520,10,90,30);
-        menuAdmin.setBounds(720,10,120,30);
-        
-        menu.add(menuDokter);
         menu.add(menuPasien);
-        menu.add(menuAdmin);
-        
-        menuDokter.addActionListener(this);
         menuPasien.addActionListener(this);
+        
+        menuDokter.setBounds(520,10,90,30);
+        menu.add(menuDokter);
+        menuDokter.addActionListener(this);
+        
+        menuAdmin.setBounds(720,10,120,30);
+        menu.add(menuAdmin);
         menuAdmin.addActionListener(this);
+        
         //akhir template
         
         //isi menu
-        
         labNik.setBounds(41, 11, 160, 25);
         isi.add(labNik);
-        textNik.setBounds(120, 11, 160, 25);
+        textNik.setBounds(121, 11, 160, 25);
         isi.add(textNik);
        
         labNama.setBounds(41, 91, 160, 25);
@@ -172,17 +173,17 @@ public class InputDokter implements ActionListener{
         Poli.setBounds(121, 251, 160, 25);
         isi.add(Poli);
         
-        labNotelp.setBounds(40, 300, 160, 25);
+        labNotelp.setBounds(41, 301, 160, 25);
         isi.add(labNotelp);
-        textNotelp.setBounds(120, 300, 160, 25);
+        textNotelp.setBounds(121, 301, 160, 25);
         isi.add(textNotelp);
         
-        labAlamat.setBounds(40, 350, 160, 25);
+        labAlamat.setBounds(41, 351, 160, 25);
         isi.add(labAlamat);
-        textAlamat.setBounds(120, 350, 160, 25);
+        textAlamat.setBounds(121, 351, 160, 25);
         isi.add(textAlamat);
         
-        submit.setBounds(80,400,100, 25);
+        submit.setBounds(81,401,100, 25);
         submit.addActionListener(this);
         isi.add(submit);
         
