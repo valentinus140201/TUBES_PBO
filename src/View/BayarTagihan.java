@@ -18,14 +18,14 @@ import Model.*;
  */
 public class BayarTagihan implements ActionListener{
     
-    JFrame BayarTagihan = new JFrame("BAYAR TAGIHAN");
+    JFrame BayarTagihan = new JFrame("Bayar Tagihan");
     JPanel menu = new JPanel();
     JPanel isi = new JPanel();
     
-    JButton menuPasien = new JButton("PASIEN");
-    JButton menuDokter = new JButton("DOKTER");
-    JButton menuAdmin = new JButton("ADMINISTRASI");
-    JButton bayarTagihan = new JButton("BAYAR TAGIHAN");
+    JButton menuPasien = new JButton("Pasien");
+    JButton menuDokter = new JButton("Dokter");
+    JButton menuAdmin = new JButton("Administrasi");
+    JButton bayarTagihan = new JButton("Bayar Tagihan");
     Transaksi tempTransaksi;
 
     public BayarTagihan(Transaksi transaksi){
