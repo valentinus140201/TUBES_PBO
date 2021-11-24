@@ -26,16 +26,16 @@ import java.util.Properties;
 public class PencairanResepDokter implements ActionListener{
     ControllerDokter control = new ControllerDokter();
     
-    JFrame pencairanResepDokter = new JFrame("PENCARIAN RESEP DOKTER");
+    JFrame pencairanResepDokter = new JFrame("Pencarian Resep Dokter");
     JPanel menu = new JPanel();
     JPanel isi = new JPanel();
     
-    JButton menuPasien = new JButton("PASIEN");
-    JButton menuDokter = new JButton("DOKTER");
-    JButton menuAdmin = new JButton("ADMINISTRASI");
+    JButton menuPasien = new JButton("Pasien");
+    JButton menuDokter = new JButton("Dokter");
+    JButton menuAdmin = new JButton("Administrasi");
     
     JLabel idTransaksi = new JLabel("Id Transaksi");
-    JButton hitung = new JButton("CAIRKAN OBAT");
+    JButton hitung = new JButton("Cairkan Obat");
     String[] listIdTransaksi;
     JComboBox boxIdTransaksi;
     
@@ -56,16 +56,17 @@ public class PencairanResepDokter implements ActionListener{
         menu.setBackground(Color.ORANGE);
         
         menuPasien.setBounds(320,10,90,30);
-        menuDokter.setBounds(520,10,90,30);
-        menuAdmin.setBounds(720,10,120,30);
-        
-        menu.add(menuDokter);
         menu.add(menuPasien);
-        menu.add(menuAdmin);
-        
-        menuDokter.addActionListener(this);
         menuPasien.addActionListener(this);
+        
+        menuDokter.setBounds(520,10,90,30);
+        menu.add(menuDokter);
+        menuDokter.addActionListener(this);
+        
+        menuAdmin.setBounds(720,10,120,30);
+        menu.add(menuAdmin);
         menuAdmin.addActionListener(this);
+        
         hitung.addActionListener(this);
         
         idTransaksi.setBounds(40, 20, 160, 25);
@@ -103,19 +104,19 @@ public class PencairanResepDokter implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         String command = ae.getActionCommand();
         switch(command) {
-            case "PASIEN": 
+            case "Pasien": 
                 new MenuPasien();
                 pencairanResepDokter.setVisible(false);
                 break;
-            case "DOKTER":
+            case "Dokter":
                 new MenuDokter();
                 pencairanResepDokter.setVisible(false);
                 break;
-            case "ADMINISTRASI":
+            case "Administrasi":
                 new MenuAdmin();
                 pencairanResepDokter.setVisible(false);
                 break;
-            case "CAIRKAN OBAT":
+            case "Cairkan Obat":
                 ControllerTransaksi control = new ControllerTransaksi();
                 String strIdTransaksi = String.valueOf(boxIdTransaksi.getSelectedItem());;
                 Transaksi transaksi = control.getTransaksi(strIdTransaksi);
