@@ -88,9 +88,9 @@ public class BayarTagihan implements ActionListener{
         BayarTagihan.add(isi);
         BayarTagihan.add(menu);
         
+        BayarTagihan.setVisible(true);
         BayarTagihan.setUndecorated(true);
         BayarTagihan.getRootPane().setWindowDecorationStyle(JRootPane.PLAIN_DIALOG);
-        BayarTagihan.setVisible(true);
         BayarTagihan.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     
         tempTransaksi = transaksi;
