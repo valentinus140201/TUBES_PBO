@@ -30,6 +30,8 @@ public class BayarTagihan implements ActionListener{
 
     public BayarTagihan(Transaksi transaksi){
         
+        JLabel labIdTransaksi,labNamaPasien,labTotalTagihan,isilabIdTransaksi,isilabNamaPasien,isilabTotalTagihan;
+        
         BayarTagihan.setSize(1200, 620);
         BayarTagihan.setLocationRelativeTo(null);
         BayarTagihan.setLayout(null);
@@ -58,13 +60,13 @@ public class BayarTagihan implements ActionListener{
         bayarTagihan.setBounds(121,201,150,30);
         bayarTagihan.addActionListener(this);
 
-        JLabel labIdTransaksi = new JLabel("Id Transaksi : ");
-        JLabel labNamaPasien = new JLabel("Nama : ");
-        JLabel labTotalTagihan = new JLabel("Total Tagihan : ");
+        labIdTransaksi = new JLabel("Id Transaksi : ");
+        labNamaPasien = new JLabel("Nama : ");
+        labTotalTagihan = new JLabel("Total Tagihan : ");
         
-        JLabel isilabIdTransaksi = new JLabel(transaksi.getIdTransaksi());
-        JLabel isilabNamaPasien = new JLabel(transaksi.getPasien().getNama());
-        JLabel isilabTotalTagihan = new JLabel("" + transaksi.getTotal());
+        isilabIdTransaksi = new JLabel(transaksi.getIdTransaksi());
+        isilabNamaPasien = new JLabel(transaksi.getPasien().getNama());
+        isilabTotalTagihan = new JLabel("" + transaksi.getTotal());
         
         labIdTransaksi.setBounds(41, 51, 160, 25);
         isilabIdTransaksi.setBounds(121, 51, 160, 25);
@@ -98,23 +100,23 @@ public class BayarTagihan implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         String command = ae.getActionCommand();
         switch(command) {
-            case "PASIEN": 
+            case "Pasien": 
                 new MenuPasien();
                 BayarTagihan.setVisible(false);
                 break;
-            case "DOKTER":
+            case "Dokter":
                 new MenuDokter();
                 BayarTagihan.setVisible(false);
                 break;
-            case "ADMINISTRASI":
+            case "Administrasi":
                 new MenuAdmin();
                 BayarTagihan.setVisible(false);
                 break;
-            case "BAYAR TAGIHAN":
+            case "Bayar Tagihan":
                 ControllerTransaksi.insertTransaksibyBayarTagihan(tempTransaksi);
                 BayarTagihan.setVisible(false);
                 new MenuAdmin();
-                JOptionPane.showMessageDialog(null, "Pembayaran Telah Berhasil, Trimaksih");
+                JOptionPane.showMessageDialog(null, "Pembayaran telah berhasil, Terima Kasih");
                 break;
             default: 
                 break;
