@@ -12,5 +12,5 @@ import javax.crypto.IllegalBlockSizeException;
  * @author V for Vladimir
  */
 public enum StatusAbsensi {
-    ABSEN,HADIR,IZIN;
+    ABSEN,MASUK,IZIN;
 }
