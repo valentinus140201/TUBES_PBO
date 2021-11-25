@@ -56,11 +56,11 @@ public class AbsensiDokter implements InterfaceAbsensiDokter{
 //        ArrayList<Dokter> listDokter = cd.getDokters();
 //        int i = 0;
 //        boolean found = false;
-//        String namaDokter = JOptionPane.showInputDialog("Silahkan masukan nama dokter: ");
+//        String namaDokter = JOptionPane.showInputDialog("masukan nama dokter ");
 //  
 //        absenDokter.tanggal = new Date();
 //        
-//        int statusIzin = Integer.parseInt(JOptionPane.showInputDialog("apa yang akan anda kerjakan?"
+//        int statusIzin = Integer.parseInt(JOptionPane.showInputDialog("apa yang akan anda pilih?"
 //                + "\n1. izin"
 //                + "\n2. absen"));
 //        
