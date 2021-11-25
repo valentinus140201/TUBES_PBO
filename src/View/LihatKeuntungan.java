@@ -15,7 +15,7 @@ public class LihatKeuntungan implements ActionListener{
  * @author hp
  */
     
-    JFrame lihatKeuntunganKlinik = new JFrame("Melihat Keuntungan Klinik");
+    JFrame lihatKeuntunganKlinik = new JFrame("Cek Keuntungan Klinik");
     JPanel menu = new JPanel();
     JPanel isi = new JPanel();
     
