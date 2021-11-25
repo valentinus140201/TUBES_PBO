@@ -26,17 +26,17 @@ import java.awt.Font;
 
 public class MenuTransaksi implements ActionListener{
     
-    JFrame frame = new JFrame("MENU TRANSAKSI");
+    JFrame frame = new JFrame("Menu Transaksi");
     JPanel menu = new JPanel();
     JPanel isi = new JPanel();
     
-    JButton menu_pasien = new JButton("PASIEN");
-    JButton menu_dokter = new JButton("DOKTER");
-    JButton menu_admin = new JButton("ADMINISTRASI");
-    JButton obatPasien = new JButton("PERNCAIRAN RESEP DOKTER");
-    JButton lihatTransaksi = new JButton("LIHAT SEMUA TRANSAKSI");
-    JButton bayarTransaksi = new JButton("BAYAR TAGIHAN");
-    JButton lihatKeuntungan = new JButton("LIHAT KEUNTUNGAN");
+    JButton menu_pasien = new JButton("PAasien");
+    JButton menu_dokter = new JButton("Dokter");
+    JButton menu_admin = new JButton("Administrasi");
+    JButton obatPasien = new JButton("Pencairan Resep Dokter");
+    JButton lihatTransaksi = new JButton("Lihat Semua Transaksi");
+    JButton bayarTransaksi = new JButton("Bayar Tagihan");
+    JButton lihatKeuntungan = new JButton("Lihat Keuntungan");
     JLabel homePertama;
     
     
@@ -56,15 +56,15 @@ public class MenuTransaksi implements ActionListener{
         menu.setBackground(Color.ORANGE);
         
         menu_pasien.setBounds(320,10,90,30);
-        menu_dokter.setBounds(520,10,90,30);
-        menu_admin.setBounds(720,10,120,30);
-       
-        menu.add(menu_dokter);
         menu.add(menu_pasien);
-        menu.add(menu_admin);
-       
-        menu_dokter.addActionListener(this);
         menu_pasien.addActionListener(this);
+        
+        menu_dokter.setBounds(520,10,90,30);
+        menu.add(menu_dokter);
+        menu_dokter.addActionListener(this);
+        
+        menu_admin.setBounds(720,10,120,30);
+        menu.add(menu_admin);
         menu_admin.addActionListener(this);
         
         String homesPertama = "MENU TRANSAKSI";
@@ -74,22 +74,23 @@ public class MenuTransaksi implements ActionListener{
         homePertama.setFont(new Font("Times New Roman", Font.BOLD, 30));
         
         homePertama.setBounds(430, 20, 750, 100);
-        obatPasien.setBounds(475,100,200,50);
-        lihatTransaksi.setBounds(475,180,200,50);
-        bayarTransaksi.setBounds(475,260,200,50);
-        lihatKeuntungan.setBounds(475,340,200,50);
-        
         isi.add(homePertama);
+        
+        obatPasien.setBounds(475,100,200,50);
         isi.add(obatPasien);
-        isi.add(lihatTransaksi);
-        isi.add(bayarTransaksi);
-        isi.add(lihatKeuntungan);
-        
         obatPasien.addActionListener(this);
-        lihatTransaksi.addActionListener(this);
-        bayarTransaksi.addActionListener(this);
-        lihatKeuntungan.addActionListener(this);
         
+        lihatTransaksi.setBounds(475,180,200,50);
+        isi.add(lihatTransaksi);
+        lihatTransaksi.addActionListener(this);
+        
+        bayarTransaksi.setBounds(475,260,200,50);
+        isi.add(bayarTransaksi);
+        bayarTransaksi.addActionListener(this);
+        
+        lihatKeuntungan.setBounds(475,340,200,50);
+        isi.add(lihatKeuntungan);
+        lihatKeuntungan.addActionListener(this);       
         
         frame.add(isi);
         frame.add(menu);
@@ -106,31 +107,31 @@ public class MenuTransaksi implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         String command = ae.getActionCommand();
         switch(command) {
-            case "PASIEN": 
+            case "Pasien": 
                 new MenuPasien();
                 frame.setVisible(false);
                 break;
-            case "DOKTER":
+            case "Dokter":
                 new MenuDokter();
                 frame.setVisible(false);
                 break;
-            case "ADMINISTRASI":
+            case "Administrasi":
                 new MenuAdmin();
                 frame.setVisible(false);
                 break;
-            case "PERNCAIRAN RESEP DOKTER":
+            case "Pencairan Resep Dokter":
                 new PrePencairanResepDokter();
                 frame.setVisible(false);
                 break;
-            case "LIHAT SEMUA TRANSAKSI":
+            case "Lihat Semua Transaksi":
                 new LihatSemuaTransaksi();
                 frame.setVisible(false);
                 break;
-            case "BAYAR TAGIHAN":
+            case "Bayar Tagihan":
                 new PreBayarTagihanNik();
                 frame.setVisible(false);
                 break;
-            case "LIHAT KEUNTUNGAN":
+            case "Lihat Keuntungan":
                 new LihatKeuntungan();
                 frame.setVisible(false);
                 break;    
