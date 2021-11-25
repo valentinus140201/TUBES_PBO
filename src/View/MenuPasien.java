@@ -36,7 +36,7 @@ public class MenuPasien implements ActionListener{
         searchPasien = new JButton("Cari Pasien");
         beliObat = new JButton("Beli Obat");
         tambahRiwayatPasien = new JButton("Update Riwayat Pasien");
-        buatJanjiTemu = new JButton("Janji Temu");
+        buatJanjiTemu = new JButton("Janji Appointment");
         lihatRiwayatPasien = new JButton("Lihat Riwayat Pasien");
         
         frame.setSize(1200, 620);
