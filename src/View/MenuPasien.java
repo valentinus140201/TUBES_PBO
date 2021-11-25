@@ -10,10 +10,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.JRootPane;
 
 /**
@@ -22,24 +19,25 @@ import javax.swing.JRootPane;
  */
 public class MenuPasien implements ActionListener{
     
-    JFrame frame = new JFrame("MENU PASIEN");
+    JFrame frame = new JFrame("Menu Pasien");
     JPanel menu = new JPanel();
     JPanel isi = new JPanel();
     
-    JButton menuPasien = new JButton("PASIEN");
-    JButton menuDokter = new JButton("DOKTER");
-    JButton menuAdmin = new JButton("ADMINISTRASI");
-    JButton insertPasienBaru, searchPasien, beliObat, tambahRiwayatPasien, buatJanjiTemu, lihatRiwayatPasien;
-    JLabel homePertama;
+    JButton menuPasien = new JButton("Pasien");
+    JButton menuDokter = new JButton("Dokter");
+    JButton menuAdmin = new JButton("Administrasi");
     
     public MenuPasien(){
+        
+        JButton insertPasienBaru, searchPasien, beliObat, tambahRiwayatPasien, buatJanjiTemu, lihatRiwayatPasien;
+        JLabel homePertama;
 
-        insertPasienBaru = new JButton("INSERT PASIEN BARU");
-        searchPasien = new JButton("CARI PASIEN");
-        beliObat = new JButton("BELI OBAT");
-        tambahRiwayatPasien = new JButton("UPDATE RIWAYAT PASIEN");
-        buatJanjiTemu = new JButton("JANJI TEMU");
-        lihatRiwayatPasien = new JButton("LIHAT RIWAYAT PASIEN");
+        insertPasienBaru = new JButton("Insert Pasien Baru");
+        searchPasien = new JButton("Cari Pasien");
+        beliObat = new JButton("Beli Obat");
+        tambahRiwayatPasien = new JButton("Update Riwayat Pasien");
+        buatJanjiTemu = new JButton("Janji Temu");
+        lihatRiwayatPasien = new JButton("Lihat Riwayat Pasien");
         
         frame.setSize(1200, 620);
         frame.setLocationRelativeTo(null);
@@ -55,15 +53,15 @@ public class MenuPasien implements ActionListener{
         menu.setBackground(Color.ORANGE);
         
         menuPasien.setBounds(320,10,90,30);
-        menuDokter.setBounds(520,10,90,30);
-        menuAdmin.setBounds(720,10,120,30);
-        
-        menu.add(menuDokter);
         menu.add(menuPasien);
-        menu.add(menuAdmin);
-        
-        menuDokter.addActionListener(this);
         menuPasien.addActionListener(this);
+        
+        menuDokter.setBounds(520,10,90,30);
+        menu.add(menuDokter);
+        menuDokter.addActionListener(this);
+        
+        menuAdmin.setBounds(720,10,120,30);
+        menu.add(menuAdmin);
         menuAdmin.addActionListener(this);
         
         String homesPertama = "MENU PASIEN";
@@ -73,23 +71,26 @@ public class MenuPasien implements ActionListener{
         homePertama.setFont(new Font("Times New Roman", Font.BOLD, 30));
         
         homePertama.setBounds(465, 20, 750, 100);
-        insertPasienBaru.setBounds(475, 100, 200, 50);
-        searchPasien.setBounds(475, 180, 200, 50);
-        tambahRiwayatPasien.setBounds(475, 260, 200, 50);
-        buatJanjiTemu.setBounds(475, 340, 200, 50);
-        lihatRiwayatPasien.setBounds(475, 420, 200, 50);
-        
         isi.add(homePertama);
-        isi.add(insertPasienBaru);
-        isi.add(searchPasien);
-        isi.add(tambahRiwayatPasien);
-        isi.add(lihatRiwayatPasien);
-        isi.add(buatJanjiTemu);
         
+        insertPasienBaru.setBounds(475, 100, 200, 50);
+        isi.add(insertPasienBaru);
         insertPasienBaru.addActionListener(this);
+        
+        searchPasien.setBounds(475, 180, 200, 50);
+        isi.add(searchPasien);
         searchPasien.addActionListener(this);
+        
+        tambahRiwayatPasien.setBounds(475, 260, 200, 50);
+        isi.add(tambahRiwayatPasien);
         tambahRiwayatPasien.addActionListener(this);
+        
+        buatJanjiTemu.setBounds(475, 340, 200, 50);
+        isi.add(buatJanjiTemu);
         buatJanjiTemu.addActionListener(this);
+        
+        lihatRiwayatPasien.setBounds(475, 420, 200, 50);
+        isi.add(lihatRiwayatPasien);
         lihatRiwayatPasien.addActionListener(this);
         
         frame.add(isi);
@@ -98,7 +99,6 @@ public class MenuPasien implements ActionListener{
         frame.setUndecorated(true);
         frame.getRootPane().setWindowDecorationStyle(JRootPane.PLAIN_DIALOG);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
         frame.setVisible(true);
     }
 
@@ -106,34 +106,34 @@ public class MenuPasien implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         String command = ae.getActionCommand();
         switch(command) {
-            case "PASIEN": 
+            case "Pasien": 
                 new MenuPasien();
                 frame.setVisible(false);
                 break;
-            case "DOKTER":
+            case "Dokter":
                 new MenuDokter();
                 frame.setVisible(false);
                 break;
-            case "ADMINISTRASI":
+            case "Administrasi":
                 new MenuAdmin();
                 frame.setVisible(false);
                 break;
-            case "INSERT PASIEN BARU":
+            case "Insert Pasien Baru":
                 new ViewInsertPasienBaru();
                 break;
-            case "CARI PASIEN":
+            case "Cari Pasien":
                 new ViewSearchPasien();
                 frame.setVisible(false);
                 break;
-            case "UPDATE RIWAYAT PASIEN":
+            case "Update Riwayat Pasien":
                 new viewTambahRiwayatPasien();
                 frame.setVisible(false);
                 break;
-            case "JANJI TEMU":
+            case "Janji Temu":
                 new ViewJanjiTemu();
                 frame.setVisible(false);
                 break;
-            case "LIHAT RIWAYAT PASIEN":
+            case "Lihat Riwayat Pasien":
                 new viewLihatRiwayat1Pasien();
                 frame.setVisible(false);
                 break;
