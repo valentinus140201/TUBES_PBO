@@ -45,7 +45,7 @@ public class ViewAbsensiDokter implements ActionListener{
     Properties p = new Properties();
     JDatePanelImpl datePanel = new JDatePanelImpl(model, p);
     JDatePickerImpl datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
-    String[] listStatus = {"HADIR", "ALPHA", "IZIN"};
+    String[] listStatus = {"HADIR", "ALPHA", "IZIN", "SAKIT"};
     JComboBox Status = new JComboBox(listStatus);
     private ControllerDokter control = new ControllerDokter();
     
