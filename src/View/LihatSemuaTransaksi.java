@@ -29,7 +29,7 @@ import javax.swing.table.JTableHeader;
 
 public class LihatSemuaTransaksi implements ActionListener{
     
-    JFrame lihatSemuaTransaksi = new JFrame("Melihat Semua Transaksi");
+    JFrame lihatSemuaTransaksi = new JFrame("Cek Semua Transaksi");
     JPanel menu = new JPanel();
     JPanel isi = new JPanel();
     
@@ -37,7 +37,7 @@ public class LihatSemuaTransaksi implements ActionListener{
     JButton menuDokter = new JButton("Dokter");
     JButton menuAdmin = new JButton("Administrasi");
     JButton obatPasien = new JButton("Pencairan Resep Dokter");
-    JButton lihatTransaksi = new JButton("Melihat Semua Transaksi");
+    JButton lihatTransaksi = new JButton("Cek Semua Transaksi");
   
     public LihatSemuaTransaksi(){
         
