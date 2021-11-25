@@ -7,7 +7,12 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRootPane;
 
 public class LihatKeuntungan implements ActionListener{
 /**
@@ -15,14 +20,14 @@ public class LihatKeuntungan implements ActionListener{
  * @author hp
  */
     
-    JFrame lihatKeuntunganKlinik = new JFrame("Cek Keuntungan Klinik");
+    JFrame lihatKeuntunganKlinik = new JFrame("LIHAT KEUNTUNGAN KLINIK");
     JPanel menu = new JPanel();
     JPanel isi = new JPanel();
     
-    JButton menuPasien = new JButton("Pasien");
-    JButton menuDokter = new JButton("Dokter");
-    JButton menuAdmin = new JButton("Administrasi");
-    JButton kembaliKeMenu = new JButton("Kembali ke Menu");
+    JButton menuPasien = new JButton("PASIEN");
+    JButton menuDokter = new JButton("DOKTER");
+    JButton menuAdmin = new JButton("ADMINISTRASI");
+    JButton kembaliKeMenu = new JButton("KEMBALI KE MENU");
     
 
     public LihatKeuntungan(){
@@ -41,21 +46,20 @@ public class LihatKeuntungan implements ActionListener{
         menu.setBackground(Color.ORANGE);
         
         menuPasien.setBounds(320,10,90,30);
-        menu.add(menuPasien);
-        menuPasien.addActionListener(this);
-        
         menuDokter.setBounds(520,10,90,30);
-        menu.add(menuDokter);
-        menuDokter.addActionListener(this);
-        
         menuAdmin.setBounds(720,10,120,30);
+        
+        menu.add(menuDokter);
+        menu.add(menuPasien);
         menu.add(menuAdmin);
+        
+        menuDokter.addActionListener(this);
+        menuPasien.addActionListener(this);
         menuAdmin.addActionListener(this);
+
         
-        JLabel labidCabang,labKeuntungan;
-        
-        labidCabang = new JLabel("Nama Cabang : ");
-        labKeuntungan = new JLabel("Keuntungan : ");
+        JLabel labidCabang = new JLabel("Nama Cabang : ");
+        JLabel labKeuntungan = new JLabel("Keuntungan : ");
         
         ArrayList<Transaksi> listTransaksi = ControllerTransaksi.getAllTransaksi("");
         long Keuntungan = 0;
@@ -92,19 +96,19 @@ public class LihatKeuntungan implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         String command = ae.getActionCommand();
         switch(command) {
-            case "Pasien": 
+            case "PASIEN": 
                 new MenuPasien();
                 lihatKeuntunganKlinik.setVisible(false);
                 break;
-            case "Dokter":
+            case "DOKTER":
                 new MenuDokter();
                 lihatKeuntunganKlinik.setVisible(false);
                 break;
-            case "Administrasi":
+            case "ADMINISTRASI":
                 new MenuAdmin();
                 lihatKeuntunganKlinik.setVisible(false);
                 break;
-            case "Kembali ke Menu":
+            case "KEMBALI KE MENU":
                 lihatKeuntunganKlinik.setVisible(false);
                 new MenuAdmin();
                 break;

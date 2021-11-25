@@ -22,18 +22,18 @@ import javax.swing.JRootPane;
  */
 public class MenuAdmin implements ActionListener{
     
-    JFrame frame = new JFrame("Menu Admin");
+    JFrame frame = new JFrame("MENU ADMIN");
     JPanel menu = new JPanel();
     JPanel isi = new JPanel();
     
-    JButton menuPasien = new JButton("Pasien");
-    JButton menuDokter = new JButton("Dokter");
-    JButton menuAdmin = new JButton("Administrasi");
+    JButton menuPasien = new JButton("PASIEN");
+    JButton menuDokter = new JButton("DOKTER");
+    JButton menuAdmin = new JButton("ADMINISTRASI");
     JButton logout = new JButton("LOG OUT");
-    JButton inputObat = new JButton("Input Obat");
-    JButton restockObat = new JButton("Restock Obat");
-    JButton rujukan = new JButton("Rujukan");
-    JButton transaksi = new JButton("Transaksi");
+    JButton inputObat = new JButton("INPUT OBAT");
+    JButton restockObat = new JButton("RESTOCK OBAT");
+    JButton rujukan = new JButton("RUJUKAN");
+    JButton transaksi = new JButton("TRANSAKSI");
     JLabel homePertama;
     
     public MenuAdmin(){
@@ -52,19 +52,18 @@ public class MenuAdmin implements ActionListener{
         menu.setBackground(Color.ORANGE);
         
         menuPasien.setBounds(250,10,90,30);
-        menu.add(menuPasien);
-        menuPasien.addActionListener(this);
-        
         menuDokter.setBounds(430,10,90,30);
-        menu.add(menuDokter);
-        menuDokter.addActionListener(this);
-        
         menuAdmin.setBounds(590,10,120,30);
-        menu.add(menuAdmin);
-        menuAdmin.addActionListener(this);
-        
         logout.setBounds(790,10,120,30);
+        
+        menu.add(menuDokter);
+        menu.add(menuPasien);
+        menu.add(menuAdmin);
         menu.add(logout);
+        
+        menuDokter.addActionListener(this);
+        menuPasien.addActionListener(this);
+        menuAdmin.addActionListener(this);
         logout.addActionListener(this);
         
         String homesPertama = "MENU ADMINISTRASI";
@@ -74,23 +73,20 @@ public class MenuAdmin implements ActionListener{
         homePertama.setFont(new Font("Times New Roman", Font.BOLD, 30));
         
         homePertama.setBounds(420, 20, 750, 100);
-        isi.add(homePertama);
-        
-        
         inputObat.setBounds(475,120,200,50);
-        isi.add(inputObat);
-        inputObat.addActionListener(this);
-        
         restockObat.setBounds(475,220,200,50);
-        isi.add(restockObat);
-        restockObat.addActionListener(this);
-        
         rujukan.setBounds(475,320,200,50);
-        isi.add(rujukan);
-        rujukan.addActionListener(this);
-        
         transaksi.setBounds(475,420,200,50);
+        
+        isi.add(homePertama);
+        isi.add(inputObat);
+        isi.add(restockObat);
+        isi.add(rujukan);
         isi.add(transaksi);
+        
+        inputObat.addActionListener(this);
+        restockObat.addActionListener(this);
+        rujukan.addActionListener(this);
         transaksi.addActionListener(this);
         
         frame.add(isi);
@@ -107,23 +103,23 @@ public class MenuAdmin implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         String command = ae.getActionCommand();
         switch(command) {
-            case "Pasien": 
+            case "PASIEN": 
                 new MenuPasien();
                 frame.setVisible(false);
                 break;
-            case "Dokter":
+            case "DOKTER":
                 new MenuDokter();
                 frame.setVisible(false);
                 break;
-            case "Administrasi":
+            case "ADMINISTRASI":
                 new MenuAdmin();
                 frame.setVisible(false);
                 break;
-            case "Input Obat":
+            case "INPUT OBAT":
                 new InputObat();
                 frame.setVisible(false);
                 break;
-            case "Restock Obat":
+            case "RESTOCK OBAT":
                 new ReStockObat();
                 frame.setVisible(false);
                 break;
@@ -133,11 +129,11 @@ public class MenuAdmin implements ActionListener{
                 frame.setVisible(false);;
                 new LoginScreen();
                 break;
-            case "Rujukan":
+            case "RUJUKAN":
                 new PreRujukan();
                 frame.setVisible(false);
                 break;
-            case "Transaksi":
+            case "TRANSAKSI":
                 new MenuTransaksi();
                 frame.setVisible(false);
                 break;

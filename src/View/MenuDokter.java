@@ -26,14 +26,16 @@ public class MenuDokter implements ActionListener{
     JPanel menu = new JPanel();
     JPanel isi = new JPanel();
     
-    JButton menuPasien = new JButton("Pasien");
-    JButton menuDokter = new JButton("Dokter");
-    JButton menuAdmin = new JButton("Administrasi");
-    JButton insertDokter = new JButton("Insert Dokter");
-    JButton updateDokter = new JButton("Update Dokter");
-    JButton deleteDokter = new JButton("Delete Dokter");
-    JButton absensiDokter = new JButton("Absensi Dokter");
-    JButton hitungGaji = new JButton("Hitung Gaji");
+    JButton menuPasien = new JButton("PASIEN");
+    JButton menuDokter = new JButton("DOKTER");
+    JButton menuAdmin = new JButton("ADMINISTRASI");
+    JButton insertDokter = new JButton("INSERT DOKTER");
+    JButton updateDokter = new JButton("UPDATE DOKTER");
+    JButton deleteDokter = new JButton("DELETE DOKTER");
+    JButton absensiDokter = new JButton("ABSENSI DOKTER");
+    JButton hitungGaji = new JButton("HITUNG GAJI");
+    JLabel homePertama;
+    
     
     public MenuDokter(){
         
@@ -51,46 +53,41 @@ public class MenuDokter implements ActionListener{
         menu.setBackground(Color.ORANGE);
         
         menuPasien.setBounds(320,10,90,30);
-        menu.add(menuPasien);
-        menuPasien.addActionListener(this);
-        
         menuDokter.setBounds(520,10,90,30);
-        menu.add(menuDokter);
-        menuDokter.addActionListener(this);
-        
         menuAdmin.setBounds(720,10,120,30);
+        
+        menu.add(menuDokter);
+        menu.add(menuPasien);
         menu.add(menuAdmin);
+        
+        menuDokter.addActionListener(this);
+        menuPasien.addActionListener(this);
         menuAdmin.addActionListener(this);
         
         String homesPertama = "MENU DOKTER";
-        
-        JLabel homePertama;
         
         homePertama = new JLabel(homesPertama);
         
         homePertama.setFont(new Font("Times New Roman", Font.BOLD, 30));
         
         homePertama.setBounds(465, 20, 750, 100);
-        isi.add(homePertama);
-        
         insertDokter.setBounds(475,100,200,50);
-        isi.add(insertDokter);
-        insertDokter.addActionListener(this);
-        
         updateDokter.setBounds(475,180,200,50);
-        isi.add(updateDokter);
-        updateDokter.addActionListener(this);
-        
         deleteDokter.setBounds(475,260,200,50);
-        isi.add(deleteDokter);
-        deleteDokter.addActionListener(this);
-        
         absensiDokter.setBounds(475,340,200,50);
-        isi.add(absensiDokter);
-        absensiDokter.addActionListener(this);
-        
         hitungGaji.setBounds(475,420,200,50);
+        
+        isi.add(homePertama);
+        isi.add(insertDokter);
+        isi.add(updateDokter);
+        isi.add(deleteDokter);
+        isi.add(absensiDokter);
         isi.add(hitungGaji);
+
+        insertDokter.addActionListener(this);
+        updateDokter.addActionListener(this);
+        deleteDokter.addActionListener(this);
+        absensiDokter.addActionListener(this);
         hitungGaji.addActionListener(this);
 
         frame.add(isi);
@@ -107,35 +104,35 @@ public class MenuDokter implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         String command = ae.getActionCommand();
         switch(command) {
-            case "Pasien": 
+            case "PASIEN": 
                 new MenuPasien();
                 frame.setVisible(false);
                 break;
-            case "Dokter":
+            case "DOKTER":
                 new MenuDokter();
                 frame.setVisible(false);
                 break;
-            case "Administrasi":
+            case "ADMINISTRASI":
                 new MenuAdmin();
                 frame.setVisible(false);
                 break;
-            case "Insert Dokter":
+            case "INSERT DOKTER":
                 new InputDokter();
                 frame.setVisible(false);
                 break;
-            case "Update Dokter":
+            case "UPDATE DOKTER":
                 new PreUpdateDokter();
                 frame.setVisible(false);
                 break;
-            case "Delete Dokter":
+            case "DELETE DOKTER":
                 new DeleteDokter();
                 frame.setVisible(false);
                 break;
-            case "Absensi Dokter":
+            case "ABSENSI DOKTER":
                 new ViewAbsensiDokter();
                 frame.setVisible(false);
                 break;
-            case "Hitung Gaji":
+            case "HITUNG GAJI":
                 new PreHitungGaji();
                 frame.setVisible(false);
                 break;

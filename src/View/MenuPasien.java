@@ -10,7 +10,10 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JRootPane;
 
 /**
@@ -19,25 +22,24 @@ import javax.swing.JRootPane;
  */
 public class MenuPasien implements ActionListener{
     
-    JFrame frame = new JFrame("Menu Pasien");
+    JFrame frame = new JFrame("MENU PASIEN");
     JPanel menu = new JPanel();
     JPanel isi = new JPanel();
     
-    JButton menuPasien = new JButton("Pasien");
-    JButton menuDokter = new JButton("Dokter");
-    JButton menuAdmin = new JButton("Administrasi");
+    JButton menuPasien = new JButton("PASIEN");
+    JButton menuDokter = new JButton("DOKTER");
+    JButton menuAdmin = new JButton("ADMINISTRASI");
+    JButton insertPasienBaru, searchPasien, beliObat, tambahRiwayatPasien, buatJanjiTemu, lihatRiwayatPasien;
+    JLabel homePertama;
     
     public MenuPasien(){
-        
-        JButton insertPasienBaru, searchPasien, beliObat, tambahRiwayatPasien, buatJanjiTemu, lihatRiwayatPasien;
-        JLabel homePertama;
 
-        insertPasienBaru = new JButton("Insert Pasien Baru");
-        searchPasien = new JButton("Cari Pasien");
-        beliObat = new JButton("Beli Obat");
-        tambahRiwayatPasien = new JButton("Update Riwayat Pasien");
-        buatJanjiTemu = new JButton("Janji Temu");
-        lihatRiwayatPasien = new JButton("Lihat Riwayat Pasien");
+        insertPasienBaru = new JButton("INSERT PASIEN BARU");
+        searchPasien = new JButton("CARI PASIEN");
+        beliObat = new JButton("BELI OBAT");
+        tambahRiwayatPasien = new JButton("UPDATE RIWAYAT PASIEN");
+        buatJanjiTemu = new JButton("JANJI TEMU");
+        lihatRiwayatPasien = new JButton("LIHAT RIWAYAT PASIEN");
         
         frame.setSize(1200, 620);
         frame.setLocationRelativeTo(null);
@@ -53,15 +55,15 @@ public class MenuPasien implements ActionListener{
         menu.setBackground(Color.ORANGE);
         
         menuPasien.setBounds(320,10,90,30);
-        menu.add(menuPasien);
-        menuPasien.addActionListener(this);
-        
         menuDokter.setBounds(520,10,90,30);
-        menu.add(menuDokter);
-        menuDokter.addActionListener(this);
-        
         menuAdmin.setBounds(720,10,120,30);
+        
+        menu.add(menuDokter);
+        menu.add(menuPasien);
         menu.add(menuAdmin);
+        
+        menuDokter.addActionListener(this);
+        menuPasien.addActionListener(this);
         menuAdmin.addActionListener(this);
         
         String homesPertama = "MENU PASIEN";
@@ -71,26 +73,23 @@ public class MenuPasien implements ActionListener{
         homePertama.setFont(new Font("Times New Roman", Font.BOLD, 30));
         
         homePertama.setBounds(465, 20, 750, 100);
-        isi.add(homePertama);
-        
         insertPasienBaru.setBounds(475, 100, 200, 50);
-        isi.add(insertPasienBaru);
-        insertPasienBaru.addActionListener(this);
-        
         searchPasien.setBounds(475, 180, 200, 50);
-        isi.add(searchPasien);
-        searchPasien.addActionListener(this);
-        
         tambahRiwayatPasien.setBounds(475, 260, 200, 50);
-        isi.add(tambahRiwayatPasien);
-        tambahRiwayatPasien.addActionListener(this);
-        
         buatJanjiTemu.setBounds(475, 340, 200, 50);
-        isi.add(buatJanjiTemu);
-        buatJanjiTemu.addActionListener(this);
-        
         lihatRiwayatPasien.setBounds(475, 420, 200, 50);
+        
+        isi.add(homePertama);
+        isi.add(insertPasienBaru);
+        isi.add(searchPasien);
+        isi.add(tambahRiwayatPasien);
         isi.add(lihatRiwayatPasien);
+        isi.add(buatJanjiTemu);
+        
+        insertPasienBaru.addActionListener(this);
+        searchPasien.addActionListener(this);
+        tambahRiwayatPasien.addActionListener(this);
+        buatJanjiTemu.addActionListener(this);
         lihatRiwayatPasien.addActionListener(this);
         
         frame.add(isi);
@@ -99,6 +98,7 @@ public class MenuPasien implements ActionListener{
         frame.setUndecorated(true);
         frame.getRootPane().setWindowDecorationStyle(JRootPane.PLAIN_DIALOG);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
         frame.setVisible(true);
     }
 
@@ -106,34 +106,34 @@ public class MenuPasien implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         String command = ae.getActionCommand();
         switch(command) {
-            case "Pasien": 
+            case "PASIEN": 
                 new MenuPasien();
                 frame.setVisible(false);
                 break;
-            case "Dokter":
+            case "DOKTER":
                 new MenuDokter();
                 frame.setVisible(false);
                 break;
-            case "Administrasi":
+            case "ADMINISTRASI":
                 new MenuAdmin();
                 frame.setVisible(false);
                 break;
-            case "Insert Pasien Baru":
+            case "INSERT PASIEN BARU":
                 new ViewInsertPasienBaru();
                 break;
-            case "Cari Pasien":
+            case "CARI PASIEN":
                 new ViewSearchPasien();
                 frame.setVisible(false);
                 break;
-            case "Update Riwayat Pasien":
+            case "UPDATE RIWAYAT PASIEN":
                 new viewTambahRiwayatPasien();
                 frame.setVisible(false);
                 break;
-            case "Janji Temu":
+            case "JANJI TEMU":
                 new ViewJanjiTemu();
                 frame.setVisible(false);
                 break;
-            case "Lihat Riwayat Pasien":
+            case "LIHAT RIWAYAT PASIEN":
                 new viewLihatRiwayat1Pasien();
                 frame.setVisible(false);
                 break;

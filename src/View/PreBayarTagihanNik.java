@@ -30,16 +30,16 @@ import org.jdatepicker.impl.UtilDateModel;
 
 public class PreBayarTagihanNik implements ActionListener{
     
-    JFrame preBayarTagihanNIK = new JFrame("Pre Bayar Tagihan (NIK)");
+    JFrame preBayarTagihanNIK = new JFrame("PRE BAYAR TAGIHAN (NIK)");
     JPanel menu = new JPanel();
     JPanel isi = new JPanel();
     JLabel labNik = new JLabel("NIK");
     JTextField textNik = new JTextField();
 
-    JButton menuPasien = new JButton("Pasien");
-    JButton menuDokter = new JButton("Dokter");
-    JButton menuAdmin = new JButton("Administrasi");
-    JButton cari = new JButton("Cari");
+    JButton menuPasien = new JButton("PASIEN");
+    JButton menuDokter = new JButton("DOKTER");
+    JButton menuAdmin = new JButton("ADMINISTRASI");
+    JButton cari = new JButton("CARI");
 
     private ControllerDokter control = new ControllerDokter();
 
@@ -59,15 +59,15 @@ public class PreBayarTagihanNik implements ActionListener{
         menu.setBackground(Color.ORANGE);
         
         menuPasien.setBounds(320,10,90,30);
-        menu.add(menuPasien);
-        menuPasien.addActionListener(this);
-        
         menuDokter.setBounds(520,10,90,30);
-        menu.add(menuDokter);
-        menuDokter.addActionListener(this);
-        
         menuAdmin.setBounds(720,10,120,30);
+        
+        menu.add(menuDokter);
+        menu.add(menuPasien);
         menu.add(menuAdmin);
+        
+        menuDokter.addActionListener(this);
+        menuPasien.addActionListener(this);
         menuAdmin.addActionListener(this);
         
         labNik.setBounds(40, 20, 160, 30);
@@ -95,19 +95,19 @@ public class PreBayarTagihanNik implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         String command = ae.getActionCommand();
         switch(command) {
-            case "Pasien": 
+            case "PASIEN": 
                 new MenuPasien();
                 preBayarTagihanNIK.setVisible(false);
                 break;
-            case "Dokter":
+            case "DOKTER":
                 new MenuDokter();
                 preBayarTagihanNIK.setVisible(false);
                 break;
-            case "Administrasi":
+            case "ADMINISTRASI":
                 new MenuAdmin();
                 preBayarTagihanNIK.setVisible(false);
                 break; 
-            case "Cari":
+            case "CARI":
                 ControllerTransaksi control = new ControllerTransaksi();
                 String strnik = textNik.getText();
                 ArrayList<Transaksi> listTransaksi = control.getAllTransaksi(strnik);

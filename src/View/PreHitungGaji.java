@@ -24,21 +24,18 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 public class PreHitungGaji implements ActionListener{
-    
     ControllerDokter control = new ControllerDokter();
-    //frame
-    JFrame preHitungGaji = new JFrame("Pre Hitung Gaji Dokter");
-    //panel
+    
+    JFrame preHitungGaji = new JFrame("PRE HITUNG GAJI DOKTER");
     JPanel menu = new JPanel();
     JPanel isi = new JPanel();
-    //Button
-    JButton menuPasien = new JButton("Pasien");
-    JButton menuDokter = new JButton("Dokter");
-    JButton menuAdmin = new JButton("Administrasi");
+    
+    JButton menuPasien = new JButton("PASIEN");
+    JButton menuDokter = new JButton("DOKTER");
+    JButton menuAdmin = new JButton("ADMINISTRASI");
     
     JLabel nids = new JLabel("NID");
-    JButton hitung = new JButton("Hitung");
-    
+    JButton hitung = new JButton("HITUNG");
     ArrayList<Dokter> dokters= control.getAllDokter();
     String[] listnid;
     JComboBox nid;
@@ -60,17 +57,16 @@ public class PreHitungGaji implements ActionListener{
         menu.setBackground(Color.ORANGE);
         
         menuPasien.setBounds(320,10,90,30);
-        menu.add(menuPasien);
-        menuPasien.addActionListener(this);
-        
         menuDokter.setBounds(520,10,90,30);
-        menu.add(menuDokter);
-        menuDokter.addActionListener(this);
-        
         menuAdmin.setBounds(720,10,120,30);
-        menu.add(menuAdmin);
-        menuAdmin.addActionListener(this);
         
+        menu.add(menuDokter);
+        menu.add(menuPasien);
+        menu.add(menuAdmin);
+        
+        menuDokter.addActionListener(this);
+        menuPasien.addActionListener(this);
+        menuAdmin.addActionListener(this);
         hitung.addActionListener(this);
         
         nids.setBounds(40, 20, 160, 30);
@@ -105,19 +101,19 @@ public class PreHitungGaji implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         String command = ae.getActionCommand();
         switch(command) {
-            case "Pasien": 
+            case "PASIEN": 
                 new MenuPasien();
                 preHitungGaji.setVisible(false);
                 break;
-            case "Dokter":
+            case "DOKTER":
                 new MenuDokter();
                 preHitungGaji.setVisible(false);
                 break;
-            case "Administrasi":
+            case "ADMINISTRASI":
                 new MenuAdmin();
                 preHitungGaji.setVisible(false);
                 break;
-            case "Hitung":
+            case "HITUNG":
                 String strnid = String.valueOf(nid.getSelectedItem());;
                 Dokter dokter = control.getDokter(strnid);
                 new HitungGaji(dokter);
