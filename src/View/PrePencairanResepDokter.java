@@ -9,7 +9,6 @@ package View;
  *
  * @author hp
  */
-
 import Controller.ControllerDokter;
 import Controller.ControllerTransaksi;
 import Model.*;
@@ -30,16 +29,16 @@ import org.jdatepicker.impl.UtilDateModel;
 
 public class PrePencairanResepDokter implements ActionListener{
     
-    JFrame prePencairanResepDokter = new JFrame("PRE PENCAIRAN RESEP DOKTER");
+    JFrame prePencairanResepDokter = new JFrame("Pre Pencairan Resep Dokter");
     JPanel menu = new JPanel();
     JPanel isi = new JPanel();
     JLabel labNik = new JLabel("NIK");
     JTextField textNik = new JTextField();
 
-    JButton menuPasien = new JButton("PASIEN");
-    JButton menuDokter = new JButton("DOKTER");
-    JButton menuAdmin = new JButton("ADMINISTRASI");
-    JButton cari = new JButton("CARI");
+    JButton menuPasien = new JButton("Pasien");
+    JButton menuDokter = new JButton("Dokter");
+    JButton menuAdmin = new JButton("Administrasi");
+    JButton cari = new JButton("Cari");
 
     private ControllerDokter control = new ControllerDokter();
 
@@ -59,15 +58,15 @@ public class PrePencairanResepDokter implements ActionListener{
         menu.setBackground(Color.ORANGE);
         
         menuPasien.setBounds(320,10,90,30);
-        menuDokter.setBounds(520,10,90,30);
-        menuAdmin.setBounds(720,10,120,30);
-        
-        menu.add(menuDokter);
         menu.add(menuPasien);
-        menu.add(menuAdmin);
-        
-        menuDokter.addActionListener(this);
         menuPasien.addActionListener(this);
+        
+        menuDokter.setBounds(520,10,90,30);
+        menu.add(menuDokter);
+        menuDokter.addActionListener(this);
+        
+        menuAdmin.setBounds(720,10,120,30);
+        menu.add(menuAdmin);
         menuAdmin.addActionListener(this);
         
         labNik.setBounds(40, 20, 160, 25);
@@ -82,7 +81,6 @@ public class PrePencairanResepDokter implements ActionListener{
         
         prePencairanResepDokter.add(isi);
         prePencairanResepDokter.add(menu);
-        
         prePencairanResepDokter.setUndecorated(true);
         prePencairanResepDokter.getRootPane().setWindowDecorationStyle(JRootPane.PLAIN_DIALOG);
         prePencairanResepDokter.setVisible(true);
@@ -94,19 +92,19 @@ public class PrePencairanResepDokter implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         String command = ae.getActionCommand();
         switch(command) {
-            case "PASIEN": 
+            case "Pasien": 
                 new MenuPasien();
                 prePencairanResepDokter.setVisible(false);
                 break;
-            case "DOKTER":
+            case "Dokter":
                 new MenuDokter();
                 prePencairanResepDokter.setVisible(false);
                 break;
-            case "ADMINISTRASI":
+            case "Administrasi":
                 new MenuAdmin();
                 prePencairanResepDokter.setVisible(false);
                 break; 
-            case "CARI":
+            case "Cari":
                 ControllerTransaksi control = new ControllerTransaksi();
                 String strnik = textNik.getText();
                 ArrayList<Transaksi> listTransaksi = control.getAllTransaksi(strnik);
