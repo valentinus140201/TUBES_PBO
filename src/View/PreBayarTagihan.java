@@ -26,16 +26,17 @@ import java.util.Properties;
 public class PreBayarTagihan implements ActionListener{
     ControllerDokter control = new ControllerDokter();
     
-    JFrame preBayarTagihan = new JFrame("PRE BAYAR TAGIHAN");
+    JFrame preBayarTagihan = new JFrame("Pre Bayar Tagihan");
     JPanel menu = new JPanel();
     JPanel isi = new JPanel();
     
-    JButton menuPasien = new JButton("PASIEN");
-    JButton menuDokter = new JButton("DOKTER");
-    JButton menuAdmin = new JButton("ADMINISTRASI");
+    JButton menuPasien = new JButton("Pasien");
+    JButton menuDokter = new JButton("Dokter");
+    JButton menuAdmin = new JButton("Administrasi");
     
     JLabel idTransaksi = new JLabel("Id Transaksi");
-    JButton hitung = new JButton("LIHAT TRANSAKSI");
+    JButton hitung = new JButton("Melihat Transaksi");
+    
     String[] listIdTransaksi;
     JComboBox boxIdTransaksi;
     
@@ -56,16 +57,17 @@ public class PreBayarTagihan implements ActionListener{
         menu.setBackground(Color.ORANGE);
         
         menuPasien.setBounds(320,10,90,30);
-        menuDokter.setBounds(520,10,90,30);
-        menuAdmin.setBounds(720,10,120,30);
-        
-        menu.add(menuDokter);
         menu.add(menuPasien);
-        menu.add(menuAdmin);
-        
-        menuDokter.addActionListener(this);
         menuPasien.addActionListener(this);
+        
+        menuDokter.setBounds(520,10,90,30);
+        menu.add(menuDokter);
+        menuDokter.addActionListener(this);
+        
+        menuAdmin.setBounds(720,10,120,30);
+        menu.add(menuAdmin);
         menuAdmin.addActionListener(this);
+        
         hitung.addActionListener(this);
         
         idTransaksi.setBounds(40, 20, 160, 30);
@@ -99,19 +101,19 @@ public class PreBayarTagihan implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         String command = ae.getActionCommand();
         switch(command) {
-            case "PASIEN": 
+            case "Pasien": 
                 new MenuPasien();
                 preBayarTagihan.setVisible(false);
                 break;
-            case "DOKTER":
+            case "Dokter":
                 new MenuDokter();
                 preBayarTagihan.setVisible(false);
                 break;
-            case "ADMINISTRASI":
+            case "Administrasi":
                 new MenuAdmin();
                 preBayarTagihan.setVisible(false);
                 break;
-            case "LIHAT TRANSAKSI":
+            case "Melihat Transaksi":
                 ControllerTransaksi control = new ControllerTransaksi();
                 String strIdTransaksi = String.valueOf(boxIdTransaksi.getSelectedItem());;
                 Transaksi transaksi = control.getTransaksi(strIdTransaksi);
