@@ -28,8 +28,9 @@ public abstract class User {
         this.tglLahir = tglLahir;
         this.golDar = golDar;
         this.gender = gender;
-        this.Alamat = Alamat;
         this.Telepon = Telepon;
+        this.Alamat = Alamat;
+        
     }
 
     public String getNama() {
@@ -71,6 +72,14 @@ public abstract class User {
     public void setGender(String gender) {
         this.gender = gender;
     }
+   
+    public String getTelepon() {
+        return Telepon;
+    }
+
+    public void setTelepon(String Telepon) {
+        this.Telepon = Telepon;
+    }
 
     public String getAlamat() {
         return Alamat;
@@ -78,14 +87,6 @@ public abstract class User {
 
     public void setAlamat(String Alamat) {
         this.Alamat = Alamat;
-    }
-
-    public String getTelepon() {
-        return Telepon;
-    }
-
-    public void setTelepon(String Telepon) {
-        this.Telepon = Telepon;
     }
 
     @Override
