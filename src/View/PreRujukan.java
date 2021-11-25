@@ -29,17 +29,17 @@ import org.jdatepicker.impl.UtilDateModel;
 
 public class PreRujukan implements ActionListener{
     
-    JFrame preRujukan = new JFrame("PRE RUJUKAN");
+    JFrame preRujukan = new JFrame("Pre Rujukan");
     JPanel menu = new JPanel();
     JPanel isi = new JPanel();
     JLabel labNid = new JLabel("NIK");
     JTextField textNid = new JTextField();
     JLabel namars = new JLabel("Rumah Sakit");
     
-    JButton menuPasien = new JButton("PASIEN");
-    JButton menuDokter = new JButton("DOKTER");
-    JButton menuAdmin = new JButton("ADMINISTRASI");
-    JButton submit = new JButton("SUBMIT");
+    JButton menuPasien = new JButton("Pasien");
+    JButton menuDokter = new JButton("Dokter");
+    JButton menuAdmin = new JButton("Administrasi");
+    JButton submit = new JButton("Submit");
     String[] listrs = {"Boromeus", "Santosa Pasir Kaliki", "Santosa Kopo", "Immanuel"};
     JComboBox rs = new JComboBox(listrs);
     
@@ -60,16 +60,16 @@ public class PreRujukan implements ActionListener{
         isi.setBackground(Color.ORANGE);
         menu.setBackground(Color.ORANGE);
         
-        menuPasien.setBounds(320, 10, 90, 30);
-        menuDokter.setBounds(520, 10, 90, 30);
-        menuAdmin.setBounds(720, 10, 120, 30);
-        
-        menu.add(menuDokter);
+        menuPasien.setBounds(320,10,90,30);
         menu.add(menuPasien);
-        menu.add(menuAdmin);
-        
-        menuDokter.addActionListener(this);
         menuPasien.addActionListener(this);
+        
+        menuDokter.setBounds(520,10,90,30);
+        menu.add(menuDokter);
+        menuDokter.addActionListener(this);
+        
+        menuAdmin.setBounds(720,10,120,30);
+        menu.add(menuAdmin);
         menuAdmin.addActionListener(this);
         
         labNid.setBounds(40, 10, 160, 25);
@@ -101,19 +101,19 @@ public class PreRujukan implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         String command = ae.getActionCommand();
         switch(command) {
-            case "PASIEN": 
+            case "Pasien": 
                 new MenuPasien();
                 preRujukan.setVisible(false);
                 break;
-            case "DOKTER":
+            case "Dokter":
                 new MenuDokter();
                 preRujukan.setVisible(false);
                 break;
-            case "ADMINISTRASI":
+            case "Administrasi":
                 new MenuAdmin();
                 preRujukan.setVisible(false);
                 break; 
-            case "SUBMIT":
+            case "Submit":
                 String strnid = textNid.getText();
                 Pasien pasien = control.getPasien(strnid);
                 String strrs = String.valueOf(rs.getSelectedItem());;
